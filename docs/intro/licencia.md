@@ -1,27 +1,23 @@
-# Licencia de reutilización de los datos
+# # Attribution ShareAlike license
 
-Términos aplicables Creative Commons - Compartir Igual - Atribución 4.0 Español.
+Creative Commons license terms - Attribution ShareAlike 4.0.
 
+You are free to:
 
-Usted es libre de:
+    Share — copy and redistribute the material in any medium or format
+    Adapt — remix, transform, and build upon the material
+    for any purpose, even commercially.
 
-    Compartir — copiar y redistribuir el material en cualquier medio o formato
-    Adaptar — remezclar, transformar y construir a partir del material
-    para cualquier propósito, incluso comercialmente.
+This license is acceptable for Free Cultural Works.
 
-Esta licencia es aceptable para Obras Culturales Libres.
+    The licensor cannot revoke these freedoms as long as you follow the license terms
 
-    La licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia
+Under the following terms:
 
-Bajo los siguientes términos:
+    Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
-    Atribución — Usted debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. Puede hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que usted o su uso tienen el apoyo de la licenciante.
+    ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
-    CompartirIgual — Si remezcla, transforma o crea a partir del material, debe distribuir su contribución bajo la lamisma licencia del original.
+[Full license:  Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
 
-    No hay restricciones adicionales — No puede aplicar términos legales ni medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia.
-
-[Versión completa de la licencia  CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.es)
-
-
-Sugerimos referirse también al [aviso de privacidad](https://www.quienesquien.wiki/privacidad).
+We also suggest to check our [privacy disclaimer](https://www.quienesquien.wiki/privacidad).

@@ -20,4 +20,4 @@ Under the following terms:
 
 [Full license:  Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
 
-We also suggest to check our [privacy disclaimer](https://www.quienesquien.wiki/privacidad).
+Please check our [privacy disclaimer](https://www.quienesquien.wiki/privacidad).

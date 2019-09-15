@@ -1,17 +1,17 @@
-Consultando la API de QuienEsQuien.wiki
+Consulting QuienEsQuien.wiki API
 ==================================
 
-La API de QuienEsQuienWiki es un recurso de datos abiertos basado en estándares para facilitar el análisis corporativo y de relaciones de poder entre políticos y empresarios de latinoamérica, disponible para analistas, periodistas e investigadores de datos de todo el mundo.
+QuienEsQuienWiki API is an open data resource based on standards, designed to make easier to analyze corporations and power relations between public and private sectors in Latin America. Available to analysts, journalists and data researches all over the world.
 
-La API (interfaz de programación de aplicaciones o Application Programming Interface) permite consultar datos de empresas, instituciones públicas, personas, relaciones, contratos y otros datos, principalmente de México y progresivamente incorporando datos de mercados estratégicos en américa latina para reutilizarlos en aplicaciones informáticas o sitios web, siempre y cuando se respeten los términos de la licencia CC-BY-SA.
+The Api (Application Programming Interface) allows to query data from businesses, public institutions, people, relations, contracts and other data, mainly from Mexico and will be incorporating strategy marketing data in Latin America so they can be used in applications and websites, as long as the CC-BY-SA license terms are respected.
 
-Las respuestas son en JSON, basado en los estándares `Popolo Project <http://www.popoloproject.com/>`_ y `Open Contracting Data Standard <http://standard.open-contracting.org/>`_. El sistema es una API REST hecha con Swagger y la definición OpenAPIv2. El código fuente está disponible en `el Github del proyecto <https://github.com/ProjectPODER/QuienEsQuienApi>`_.
+Results are in JSON, based on `Popolo Project standards <http://www.popoloproject.com/>`_ and `Open Contracting Data Standard <http://standard.open-contracting.org/>`_. The system is a REST API made with Swagger and OpenAPIv2 definition. The source code is available at the project’s Github <https://github.com/ProjectPODER/QuienEsQuienApi>`_.
 
-Nota: Esta documentación está en proceso de actualización. Por cualquier consulta por favor escribir a info@quienesquien.wiki.
+Note: This documentation is still being updated. For any doubts, email us at info@quienesquien.wiki.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Primeros pasos
+   :caption: First steps
 
    intro/origen.md
    intro/como.md
@@ -19,7 +19,7 @@ Nota: Esta documentación está en proceso de actualización. Por cualquier cons
 
 .. toctree::
    :maxdepth: 2
-   :caption: Descripción detallada
+   :caption: Detailed description
 
    detalle/endpoints.md
    detalle/tipos.md
@@ -27,7 +27,7 @@ Nota: Esta documentación está en proceso de actualización. Por cualquier cons
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tutoriales
+   :caption: Tutorials
 
    tutoriales/consulta.md
    tutoriales/towerbuilder.md

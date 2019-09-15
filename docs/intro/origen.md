@@ -5,4 +5,4 @@ In every case, each query will include original sources for each piece of data, 
 
 Use [/sources](endpoints#sources) to know the full list of available sources.
 
-We also suggest to check our [privacy disclaimer](https://www.quienesquien.wiki/privacidad).
+Please check our [privacy disclaimer](https://www.quienesquien.wiki/privacidad).

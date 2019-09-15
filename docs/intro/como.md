@@ -1,31 +1,29 @@
-# Cómo consultar
-La API está disponible vía HTTPS en https://api.quienesquien.wiki/v2/
+# Reference
+The API is available at https://api.quienesquien.wiki/v2/
 
-## Filtros
-Consultar cada endpoint (extremo, o punto de consulta de la API) sin parámetros hará que se devuelva el total de las entradas, utilizando los límites por defecto (25 entradas). Si quieres modificar la consulta, limitándola a aquellas entradas que coincidan con ciertos criterios, ordeńandolas o expandiendo las referencias de cada entrada, debes usar los filtros.
+## Filters
+Querying each endpoint without parameters will return all the entries, limited by default to 25 entries. In order to narrow the results, queries can be filtered using any desired criteria. Results can also be sorted and references can be expanded.
 
-Hay algunos filtros genéricos que aplican a todos los endpoints, y otros que aplican a cada endpoint en particular. Listaremos aquí los genéricos.
+There are some generic filters that apply to every endpoint, and others that apply to each point.
+
+Generic filters
 
 ## limit
-La cantidad de registros que se incluyen en cada página de resultados. Default: 25 registros. Tipo: 1000 >= entero > 0.
+Number of records included on each result page. Default: 25 records. Type: 1000 >= integer > 0.
 
 ## offset
-El número de registros a omitir desde el principio. Default: 0 registros (página inicial). Tipo: entero >= 0. Si el offset es mayor al número total de registros devuelve una respuesta vacía.
+Number of records to be skipped. Default: 0 records (home page). Type: integer >= 0. If the offset is set to a greater number than the number of results, the query will return empty.
 
 ## embed
-Bandera que indica si se incluyen referencias a otras colecciones dentro de cada documento en la respuesta. Esto inclurá las memberships, flags y summaries para cada entidad que lo tenga disponible. Default: false. Tipo: boolean.
+Flag that indicates if any reference to another collection is included in any document returned. This includes memberships, flags and summaries for each entity that has it. Default: false. Type: boolean.
 
 ## omit
-Excluir de la respuesta los campos indicados, es un listado de campos separados por coma. Tipo: array.
+Comma-separated list of fields to be excluded from results. Type: array.
 
-## fields
-Incluir sólo los campos indicados en la respuesta, es un listado de campos separados por coma. Tipo: array.
+## updated_since (not implemented)
+Only show records updated after specified date. Type: date. Default: 0000-00-00T00:00:00Z.
 
+## include_custom_fields (not implemented)
+Use this flag to add custom fields to the documents returned in the query Default: none. Possible values: all, none, fields list. Type: array. Si algún campo solicitado no existe, no incluye información adicional en la respuesta.
 
-## updated_since (no implementado)
-Limitar el conjunto de resultados a aquellos cuya fecha de última actualización sea posterior al valor del filtro. Tipo: date. Default: 0000-00-00T00:00:00Z.
-
-## include_custom_fields (no implementado)
-Bandera que indica los campos adicionales que se desea incluir dentro de cada documento en la respuesta. Default: none. Valores posibles: all, none, listado de campos. Tipo: array. Si algún campo solicitado no existe, no incluye información adicional en la respuesta.
-
-En las bases de datos de QQW existen muchos datos adicionales a los estándares utilizados para cada tipo de dato. TODO: hacer el listado de los fields disponibles para cada tipo de dato.
+In QQW databases, there is several additional data that can be used, alongside to the standard ones. TODO: hacer el listado de los fields disponibles para cada data type.

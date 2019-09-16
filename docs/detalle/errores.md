@@ -1,12 +1,12 @@
-# Mensajes de error
+# Error messages
 
-Cuando la API no puede devolver resultados, devuelve un conjunto vacío pero el status sigue siendo success.
+If the API can’t return any results, it returns an empty set but the status will still be success.
 
-La API devuelve un mensaje de error cuando no pudo procesar la consulta.
+The APi will return an error message if the query couldn’t be processed.
 
-Hay un límite máximo de 5 segundos a las consultas a la base de datos. Las consultas realizadas sobre campos sin índice normalmente exceden este límite y generan mensajes de error.
+There is a 5 seconds limit for the database queries. Queries made on non-indexed fields usually exceed this limit and result in an error message.
 
-## Parámetro inexistente
+## Invalid parameter
 ```json
 {
 
@@ -42,11 +42,11 @@ Hay un límite máximo de 5 segundos a las consultas a la base de datos. Las con
 }
 ```
 
-# Resultado vacío
+# Empty Result
 
-Si el conjunto de filtros eliminan todos los registros, lo que ocurre es que se devuelve un estado de éxito pero sin resultados.
+If the filters’ set omits all records, the status will still be success, but with no results.
 
-Ejemplo:
+For example:
 
 ```
 {
@@ -62,11 +62,11 @@ Ejemplo:
 }
 ```
 
-# Exceso de tiempo de procesamiento
+# Process timeout
 
-Las consultas de API no deben tardar más de 6 segundos en ejecutarse en la base de datos, es por esto que si se realizan consultas sobre campos indexistentes o que no tienen índice o que por sus relaciones con otras tablas o por otras razones toman más de 6 segundos, estas consultas devuelven un mensaje de error.
+The timeout for API queries to the database is 6 seconds. This means that if a query is made for an inexistent field or a non-indexed record or any other reason takes more than 6 seconds, these queries will return an error message.
 
-Ejemplo:
+For example:
 ```
 {
 

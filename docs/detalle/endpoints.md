@@ -87,42 +87,42 @@ Name of the source where the info was imported from. Data type: string.
 
 
 ## /contracts
-Devuelve un [OCDS recordPackage](https://standard.open-contracting.org/latest/en/schema/record_package/). Que incluye un listado de records, cada uno con sus release (de cada fuente) y su compiledRelease, este último es el que se utiliza para los filtros.
+Returns an [OCDS recordPackage] (https://standard.open-contracting.org/latest/en/schema/record_package/). Includes a records list, each with its release (for each source) and its compiledRelease. The latter one is used for filters.
 
-### Filtros
+### Filters
 #### ocid
-El identificador único del proceso de contratación (ocid). Tipo de dato: string.
-#### Título: compiledRelease.contracts.title
-El título del contrato. Tipo de dato: string o regular expression.
-## Proveedor: compiledRelease.awards.suppliers.name
-## Dependencia: compiledRelease.parties.memberOf.name
-#### Fecha de inicio: compiledRelease.contracts.period.startDate
-Fecha de inicio del contrato de los procesos de contratación. Tipo de dato: date (0000-00-00T00:00:00Z). Default: vacío.
-#### Fecha de fin: compiledRelease.contracts.period.endDate
-Fecha de fin del contrato de los procesos de contratación. Tipo de dato: date (0000-00-00T00:00:00Z). Default: vacío.
+Unique identifier for the contracting process (ocid). Data type: string.
+#### Title: compiledRelease.contracts.title
+The title of the contract. Data type: string or regular expression.
+## Provider: compiledRelease.awards.suppliers.name
+## Dependency: compiledRelease.parties.memberOf.name
+#### Start date: compiledRelease.contracts.period.startDate
+Start date of the contracting processes contract. Data type: date (0000-00-00T00:00:00Z). Default: empty.
+#### End date: compiledRelease.contracts.period.endDate
+End date of contracting processes contract. Data type: date (0000-00-00T00:00:00Z). Default: empty.
 
 #### compiledRelease.total_amount
-El importe nominal del proceso de contratación (suma de todos las adjudicaciones de este proceso). Tipo de dato: float (sin separador de miles y con '.' como separador de decimales). Default: vacío.
+Nominal amount of a contracting process (sum of all the adjudications of this contract). Data type: float (without thousand separator and point as decimal separator). Default: empty.
 
 #### procurement_method
-El procedimiento bajo el cual se realizó el proceso de contratación (adjudicación directa, licitación, etc.). Tipo de dato: string. Valores posibles: open, selective, limited, direct. Default: vacío.
+The procedure under which the contracting process was made (direct award, tender, etc). Data type: string. Possible values: open, selective, limited, direct. Default: empty.
 
-#### currency (no implementado)
-La moneda utilizada para especificar los importes de los procesos de contratación. Tipo de dato: string.
+#### currency (not implemented)
+The currency used to specify the amounts of the contracting processes. Data type: string.
 
 ## /csv
 
-Este endpoint genera versiones en CSV de los anteriores. La misma consulta se pone luego del /csv.
+This endpoint generates CSV versions of the former ones. The same query takes place after the /csv.
 
-Ejemplo: Si tenemos una búsqueda de contratos ordenada por el importe `https://api.quienesquien.wiki/v2/contracts?sort=-compiledRelease.total_amount` y queremos el resultado en CSV podemos agregar CSV luego del v2 y antes del contracts, así: `https://api.quienesquien.wiki/v2/csv/contracts?sort=-compiledRelease.total_amount`
+Example: if we have a contracts search sorted by amount `https://api.quienesquien.wiki/v2/contracts?sort=-compiledRelease.total_amount`, and we want the result in CSV, we can add /csv/ after v2 and before contracts, like this: `https://api.quienesquien.wiki/v2/csv/contracts?sort=-compiledRelease.total_amount`
 
-Lo mismo resulta válido para los otros endpoints.
+The same applies to any other endpoint.
 
-Para cada tipo de entidad se generan diferentes tablas.
+For each entity type, different tables are generated.
 
 ### Contracts
 
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 "OCID", records.ocid (Repeated for each contract in a compiledRelase)
 "Contract title", records.compiledRelease.contracts.title
@@ -139,7 +139,7 @@ La tabla de CSV tiene las siguientes columnas:
 ```
 
 ### Persons
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 'id',
 'name',
@@ -148,7 +148,7 @@ La tabla de CSV tiene las siguientes columnas:
 ```
 
 ### Institutions:
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 'id',
 'name',
@@ -161,7 +161,7 @@ La tabla de CSV tiene las siguientes columnas:
 ```
 
 ### Companies
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 'id',
 'name',
@@ -173,10 +173,9 @@ La tabla de CSV tiene las siguientes columnas:
 'contract_count_buyer'
 ```
 
-
 ## /sources
-Devuelve un información sobre cantidades de entidad por fuente y por tipo de entidad en QuienEsQuien.wiki.
+Returns information about how many entities there are for each source and type in QuienEsQuien.wiki.
 
-Tiene dos objetos, uno de fuentes `sources` que tiene por cada fuente la cantidad de elementos de cada tipo de entidad. Y otro de colecciones `collections` que tiene la cantidad elementos de cada tipo de entidad.
+It has two objects: one of `sources`, that has for each source the quantity of elements of each entity type; and another one of  `collections`, that has the quantity of elements of each entity type.
 
-Nota: Este endpoint está en construcción.
+Note: this endpoint is still under construction.

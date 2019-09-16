@@ -1,7 +1,7 @@
-# Tipos de datos
+# # Data types
 ## company
 
-Popolo Oranization JSON Schema:
+Popolo Organization JSON Schema:
 
 ```
 {
@@ -208,7 +208,7 @@ Example:
 ## institution
 
 
-Popolo Oranization JSON Schema:
+Popolo Organization JSON Schema:
 
 ```
 {
@@ -3202,7 +3202,7 @@ OCDS Release:
 ```
 
 
-## source (no implementado)
+## source (not implemented)
 ```
 {
 importador

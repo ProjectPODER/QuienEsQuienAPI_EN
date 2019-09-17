@@ -1,15 +1,15 @@
-## Haciendo una app que consuma datos de contrataciones
-El objetivo de esta API es que se puedan crear aplicaciones interactivas que faciliten la investigación y presentación de datos de empresarios y funcionarios en América Latina, es por eso que incluiremos un detalle paso a paso de cómo crear una aplicación utilizando el lenguaje de programación JavaScript y el cliente de API [node-qqw](https://github.com/ProjectPODER/node-qqw/).
+## Making an app that feeds on contracting data.
+The goal of this API is to allow the creation of interactive applications that facilitate research and visualization of data regarding business people and government officials in Latin America, and that is why we will include a step-by-step guide on how to create an application using JavaScript and the client's API [node-qqw] https://github.com/ProjectPODER/node-qqw/).
 
-Este tutorial no es una introducción a nodejs, sino más bien una secuencia de pasos y consideraciones para lograr tener una aplicación, fácilmente extensible, basada en esta API.
+This tutorial is not an introduction to nodejs, but rather a step sequence and some considerations, in order to be able to have an easily extensible application, based on this API.
 
-### Iniciando nuestro proyecto, elije tu GIF
+### Starting our project, choose your GIF
 
-Cuando iniciamos proyectos en PODER, lo hacemos eligiendo un nombre y un GIF animado para darle identidad al proyecto, aunque esto no llegue a publicarse, sirve para tener una forma fácil y rápida de transmitir a todo el equipo el objetivo del mismo.
+When we start projects in PODER, we do it choosing a name and an animated GIF to give identity to the project. Even when this will not be published, its purpose is to have a fast and easy way to communicate to the whole team its goal.
 
-Para este tutorial realizaremos un proyecto para descargar los 100 contratos más grandes del año 2012 e identificar a las empresas más beneficiadas ese año, lo llamaremos `baktún`. Recordamos que este año se publicitó como el "fin del mundo" o al menos como un gran cambio de era, en base a algunas malas interpretaciones de la mitología maya. No es necesario que nuestra investigación tenga sentido ya que es un proyecto de prueba, pero tu proyecto si puede ser significativo. Si buscas inspiración, puedes revisar nuestras páginas de [investigaciones](https://www.quienesquien.wiki/investigaciones) y [herramientas](https://www.quienesquien.wiki/herramientas).
+For this tutorial we will make a project to download the 100 biggest contracts of 2012, and to tell which companies were benefited the most. We will call it 'baktun'. In 2012, according to some bad interpretations of Mayan mythology, was supposedly the year the world would end, or at least it would usher a new era. Since this is a test project, there's no need for it to make sense, but your project can be meaningful. If you're looking for inspiration, you can check our [research] pages(https://www.quienesquien.wiki/investigaciones) and [tools](https://www.quienesquien.wiki/herramientas).
 
-Para realizar nuestro proyecto, vamos a utilizar el git como manejador de versiones de código sobre el sistema operativo Ubuntu Linux, por lo tanto creamos una nueva carpeta e iniciamos el repositorio de git de la siguiente forma.
+For our project, we will use the git as a handler of code versions on Ubuntu Linux, so we will create a new folder and start the git repository like this:
 
 ```
 mkdir baktun
@@ -17,7 +17,7 @@ cd baktun
 git init
 ```
 
-Una vez que iniciamos nuestro proyecto, debemos crear nuestro archivo `package.json`. Este tendrá como dependencia a la librería node-qqw.
+Once we start our project,  we have to create our ‘package.json’ file. This will have as dependency the node-qqw library.
 
 package.json:
 ```
@@ -37,9 +37,9 @@ package.json:
 
 ```
 
-Nota: El paquete de node-qqw aún no está publicado en el repositorio npm, por lo que es necesario incluirlo desde github. Además incluímos el framework express para facilitar la creación de una página web.
+Note: the node-qq package is not published yet on the npm repository, so it's necessary to add it via GitHub. We’ll also include the express framework to make easier web page creation.
 
-Luego debemos crear el archivo principal de nuestro aplicación, llamado `app.js`. En este archivo incluiremos a la API y haremos consultas, luego utilizaremos estas consultas para generar una página web con un listado de nombres de las empresas más beneficiadas este año, enlazadas a quienesquien.wiki para ver la información completa.
+Then we must create our application's main file, called 'app.js'. In this file, we will include the API and make queries, then we will use the results to generate a web page with a list of the most benefited businesses this year, linked to Quienesquien.wiki to see the full data.
 
 app.js
 ```
@@ -66,58 +66,58 @@ module.exports = app;
 
 ```
 
-En este código hemos definido que utilizaremos el archivo `routes/index.js` para definir el contenido de nuestra aplicación, y será ahí también donde hagamos el llamado a la API de QuienEsQuien.wiki. También hemos definido que utilizaremos la carpeta `views` para poner nuestros templates de handlebars que se utilizarán para generar el html que enviaremos al navegador de nuestros usuarios.
+In our code, we have established that we will use the `routes/index.js` to define the content of our application, and it will be there where we'll make the QuienEsQuien.wiki API call. We have also established that we will use the `views` folder to store our handlebar templates that will be used to generate the HTML that we will send to our users' browsers.
 
-### Creando nuestra página principal
+### Creating our main page
 
-En esta página mostraremos la historia principal de nuestro sitio, por lo que necesitaremos consultar la API de QuienEsQuien.wiki para obtener la información, haremos un breve repaso de la API, pero para más información revisar la sección [Cómo consultar](link?) de esta guía.
+In this page, we will show the main history of our site, so we will need to query the QuienEsQuien.wiki API to get the information. We will quickly review the API, but for more in-depth information, please see the section [How to query] of this guide.
 
-En la API se pueden realizar varios filtros, limites y órdenes de la información. También se puede restringir la información que recibimos a sólo los campos que necesitamos. En este caso tenemos algunos criterios:
+The API allows to use several filters, limits, and data sorting. The data can also be restricted to just the fields we need. In this case, we have some criteria:
 
-* Contratos que hayan sido ejecutados durante el año 2012 utilizando los filtros de fecha.
-* Ordenar los contratos de mayor a menor utlizando `sort`.
-* Limitar la búsqueda a 100 elementos utilizando `limit`.
-* (opcional) Restringir los contenidos de la respuesta utilizando `fields`.
+* Contracts executed during 2012 using date filters.
+* Sort the contracts in ascending order using `sort`.
+* Limit the search to 100 elements using `limit`.
+* (optional) Restrict the contents of the result using `fields`.
 
-También recordemos que el sitio QuienEsQuien.wiki nos ofrece una forma fácil de obtener consultas a la API desde el menú de "herramientas" en la página de búsqueda. Es decir que cualquier búsqueda que hagamos en QuienEsQuien.wiki se realiza a través de la API y podemos crear los filtros de forma visual y luego copiarlos.
+Also, don't forget that QuienEsQuien.wiki website features an easy way to make queries to the API from the 'Tools' menu, on the search page. This means that any search we make in QuienEsQuien.wiki will be made through the API, so we can make filters visually, and then copy them.
 
-#### Haciendo consultas en QuienEsQuien.wiki
+#### Querying QuienEsQuien.wiki
 
-Primero debemos realiza la consulta en QuienEsQuien.wiki para obtener una URL de API que nos sirva de base para crear nuestra consulta. Para esto entraremos al [buscador de contratos](https://www.quienesquien.wiki/contratos).
+We must first make a query in QuienEsQuien.wiki in order to get an API URL to base our query on. For this, we will get in the [contracts search engine](https://www.quienesquien.wiki/contratos).
 
-##### Filtro de fecha
-Veremos en la barra lateral los filtros por fecha. Configuraremos el primero al 1 de enero de 2012 y el segundo al 31 de diciembre de 2012. Recuerda que luego de clickear en el campo, se abrirá un calendario, es opcinal utilizarlo siempre y cuando quede escrita una fecha válida en el campo. Si utilizas el calendario, puedes clickear en el año para abrir un desplegable que te permita navegar a otros años. No olivdes seleccionar el día para completar la configuración de este filtro.
+##### Date Filter
+On the side bar, we can find the date filters. We will set the first one to January 1st, 2012; and the second one to December 31st, 2012. Upon clicking on the field, a calendar will pop up. It's not necessary to use it as long as the date entered is valid. If you choose to use it, clicking on the year will make a drop-down menu appear, allowing to easily choose year. Don't forget to choose month and day to complete the filter setup.
 
-Finalmente presiona el botón "filtrar" al final de la barra lateral.
+Click on the 'filter' button on the side bar to finish.
 
-##### Cantidad de resultados
+##### Number of results
+Even though the API allows us to choose the number of results on each page, the QuienEsQuien.wiki interface has a drop-down on the top bar of the search page, where we can choose 25, 50, or 100 results per page. We will choose 100.
 
-Si bien la API nos permite elegir de forma arbitraria la cantida de resultados a recibir en cada página, la interfaz de QuienEsQuien.wiki nos ofrece un desplegable en la barra superior de la página de búsqueda donde podemos elegir 25, 50 o 100 resultados por página. Elegiremos 100.
-
-##### Copiando la URL de la API
-En la barra superior está el menú de herramientas, que despliega varias opciones, entre ellas veremos el botón "Copiar URL", este pondrá el el portapapeles de nuestra computadora, la URL de la API que se consultó para llegar a este resultado. En nuestro caso debería quedar así:
+##### Copying the API URL
+On the top bar there's the tools menu, which displays several options. Among them, we will see the "Copy URL" button, which will store the queried API URL in our computer's clipboard.
+In our case it will look like this:
 
 ``` https://api.quienesquien.wiki/v2/contracts?sort=-compiledRelease.total_amount&compiledRelease.contracts.period.startDate=%3E2012-01-01T00%3A00%3A00.000&compiledRelease.contracts.period.endDate=%3C2012-12-31T00%3A00%3A00.000&limit=100
 ```
 
-Analicemos brevemente:
+Let's take a quick look:
 
-* Primero la URL base de la API: `https://api.quienesquien.wiki/v2/`
-* A continuación el tipo de entidad: `contracts`
-* Luego el criterio de ordenamiento: `sort=-compiledRelease.total_amount`. Este está compuesto por un signo menos, lo que indica la dirección de ordenamiento, en este caso de mayor a menor, y luego el nombre del campo. Este campo es el importe total de cada proceso de contratación `compiledRelease.total_amount`.
-* A continuación tenemos los filtros de fecha, estos filtran contratos cuya ejecución haya comenzado después de la fecha de incio y haya terminado antes de la fecha de finalización. Las fechas se expresan en standard ISO.
-* Finalmente tenemos el campo `limit` en 100, que especifica la cantidad de contratos que queremos.
+* First, there's the API URL base: `https://api.quienesquien.wiki/v2/`
+* Next, entity type: `contracts`
+* Then, the sort criteria: `sort=-compiledRelease.total_amount`. note the dash, meaning a minus sign, indicating a descending sorting, and then the field name. This field is the total amount for each contracting process `compiledRelease.total_amount`.
+* Next we have the date filters, these will filter contracts which execution had started after the start date and finished before the finish date. Dates are expressed on standard ISO.
+* Finally, we have the `limit` field on 100, which specifies the number of contracts we want.
 
-¿Qué devuelve la API?
+What does the API return?
 
-Un listado de contratos en el objeto `data`. Por suerte no tendremos que hacer un sistema que analice la respuesta de la API en crudo, sino que utilizaremos un cliente de API.
+A list of contracts in the `data`object. Luckily, we won't have to make a system that analyzes the raw API result, but instead we will use an API client.
 
 
-### El cliente de API node-qqw
+### The node-qqw API client
 
-node-qqw es un paquete de npm disponible en [github](https://github.com/ProjectPODER/node-qqw/) para incluir en tus proyectos.
+node-qqw is a npm package that you can include in your projects, available on [github](https://github.com/ProjectPODER/node-qqw/).
 
-Para realizar un llamado a la API desde nuestro proyecto `baktún` lo que debemos hacer es incluir el módulo primero.
+To make an API call from our `baktún` project, what we need to do is to includ the module first.
 
 ```
 function getApi() {
@@ -125,7 +125,7 @@ function getApi() {
   var client = new Qqw({rest_base: process.env.API_BASE});
 ```
 
-Luego hay que construir el objeto de filtros que el enviaremos:
+Then we have to build the filters object we will send:
 ```
   const params = {
     sort: "-compiledRelease.total_amount",
@@ -134,7 +134,7 @@ Luego hay que construir el objeto de filtros que el enviaremos:
     "limit": 100
   }
 ```
-Luego hacemos la consulta. Hay varias formas de hacer la consulta, pero en este caso estamos utilizando promesas con `await`, aunque también podríamos usar `then`.
+Then we will make the query. There are several ways to make the query, but in this case we are using promises with `await`, even though we could also use `then`.
 
 ```
   result = await client.get_promise(collection, params);
@@ -142,7 +142,7 @@ Luego hacemos la consulta. Hay varias formas de hacer la consulta, pero en este 
 }
 ```
 
-Finalmente debemos crear la ruta y pasarle la información a nuestro template:
+Finally, we must create a path and pass the information on to our template:
 
 ```
 function homePage(res,req) {
@@ -154,27 +154,27 @@ function homePage(res,req) {
 router.get('/', homePage());
 ```
 
-Y listo, ya tenemos un sitio funciona, sólo nos queda configurar nuestro template y probarlo.
+And there we go, we have a site that is working, we only need to set up our template and test it.
 
-En `views/index.hbs`:
+In `views/index.hbs`:
 ```
 <h1>Baktún</h1>
 <h2>Listado de los 100 contratos más caros de 2012.</h2>
 {{#if result.data.0.records.length }}
   {{#each result.data.0.records}}
     {{#each this.awards}}
-    Contrato: Proveedor(es): {{this.suppliers}} Título: {{this.title}} Importe: {{this.value.amount}} {{this.value.currency}}
+    Contract: Supplier(s): {{this.suppliers}} Tittle: {{this.title}} Value: {{this.value.amount}} {{this.value.currency}}
     {{/each}}
   {{/each}}
 {{/if}}
 ```
 
-Para probarlo debemos ejecutar `npm run start`.
+To test it, we must execute `npm run start`.
 
-### Calcular el proveedor más beneficiado
+### Find out which provider was the most benefited
 
-Ya tenemos toda la información de los contratos, pero nuestro objetivo era sumar el total de importes de cada proveedor y mostrarlos en un ranking. Para esto hay que procesar los contratos luego de que lleguen de la API y antes de pasarlos al template.
+We now have all the contracts information, but our goal was to sum all the amounts of each provider and rank them. For this we have to process the contracts after they get to the API and before passing them on to the template.
 
-Hay que crear una función que suma importes, los agrupa por proveedor y lo envía al template como otra variable.
+We need to create a function that adds up amounts, groups them by provider and sends them to the template as another variable.
 
-Este tutorial está incompleto, si desea utilizar la api puede consultarnos a info@quienesquien.wiki
+This tutorial is not yet finished, if you wish to use the API, please email us at info@quienesquien.wiki

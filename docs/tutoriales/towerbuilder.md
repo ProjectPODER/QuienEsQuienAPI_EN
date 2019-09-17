@@ -1,6 +1,6 @@
-## Extraer datos para towerbuilder
-TowerBuilder es nuestro creador de sitios web de visualización de datos de contrataciones orientado a grandes proyectos de infraestructura. El objetivo de este tutorial es explicar cómo se obtienen los datos de contrataciones abiertas que requiere esta aplicación utilizando la API de QuienEsQuienWiki.
+## ## Get data for TowerBuilder
+TowerBuilder is our contracting data visualization website generator, oriented to big infraestructure projects. The main goal of this tutorial is to explain how the open contracting data that requires this application is obtained using QuienEsQuien.wiki API.
 
-Para este tutorial utilizaremos la línea de comando de linux, lo que nos permitirá descargar los datos haciendo consultas a la API.
+For this tutorial we will use the linux command line, which will allow us to download the data making queries to the API.
 
-Este tutorial está incompleto, si desea utilizar la api puede consultarnos a info@quienesquien.wiki
+This tutorial is not yet finished, if you wish to use the API, please email us at info@quienesquien.wiki

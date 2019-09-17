@@ -3205,34 +3205,34 @@ OCDS Release:
 ## source (not implemented)
 ```
 {
-importador
-descripción_fuente
-source_run - array: fecha, numero registros, numero errores, descripcion de errores, status, id
-url_origen
-coleccion
+importer
+description_source
+source_run - array: date, entry numbers, error numbers, error description, status, id
+url_origin
+colection
 }
 ```
 
 
 ## summaries
 
-Cuando se solicita un sólo elemento de persons, companies o institutions, este incluirán sus summaries, que es un resúmen de los contratos. Estos incluyen:
-* Resúmen de contratos por año de contratación y rol, desglosando importe y cantidad.
-* Resúmen de contratos por tipo de contratación y rol, desglosando importe y cantidad.
-* Resúmen de relaciones, que se compone de un listado de nodos y otro de enlaces para poder construir un grafo de relaciones
-* Resúmen de los tres compradores más grandes por importe de contratación
-* Resúmen de los tres proveedores más grandes por importe de contratación
-* Los tres contratos más grandes por cada rol
-* Resúmen de los tres contratos más grandes por cada rol
+When a single element of persons, companies, or institutions is requested, this will include its contracts summaries. These include:
+* Contracts summary for each year and role, broken down by amount and quantity.
+* Contracts summary by contracting mode and role, broken down by amount and quantity.
+* Relations summary, made up of a node list and another of links, so a relations graph can be made.
+* Summary of the three biggest buyers, by contract amount.
+* Summary of the three biggest providers, by contract amount.
+* The three biggest contracts for each role.
+* Summary of the three biggest contracts for each role.
 
-Los roles son: funder (financiador), supplier (proveedor), buyer (comprador).
+The roles are: funder, supplier, buyer.
 
 
-Ejemplo:
+Example:
 ```
 summaries": {
 
-    //Resúmen de contratos por año de contratación y rol, desglosando importe y cantidad.
+    //Contracts summary by contracting mode and role, broken down by amount and quantity.
     "year": {
         "2009": {
             "buyer": {
@@ -3249,7 +3249,7 @@ summaries": {
             }
         },
     },
-    //Resúmen de contratos por tipo de contratación y rol, desglosando importe y cantidad.
+    //Contracts summary by contracting mode and role, broken down by amount and quantity.
     "type": {
         "open": {
             "buyer": {
@@ -3294,9 +3294,9 @@ summaries": {
             }
         }
     },
-    //El resúmen de relaciones se compone de un listado de nodos y otro de enlaces para poder construir un grafo de relaciones
+    //Relations summary, made up of a node list and another of links, so a relations graph can be made.
     "relation": {
-        //Nodos para un grafo de relaciones
+        //Nodes for a relations graph.
         "nodes": [
             {
                 "id": "direccion-general-de-conservacion-de-carreteras-secretaria-de-comunicaciones-y-transportes",
@@ -3316,10 +3316,10 @@ summaries": {
             },
         ]
     },
-    // Resúmen de los tres compradores más grandes por importe de contratación
+    // Summary of the three biggest buyers, by contract amount.
     "top_buyers": [
-        //Aquí se incluyen tres "parties" de OCDS Records si esta entidad hizo contratos como proveedor
-        // Ejemplo:
+        //Here three OCDS records parties are included, if this entity has made contracts as a provider.
+        // Example:
         {
             "roles": [
                 "buyer"
@@ -3347,57 +3347,56 @@ summaries": {
             "contract_amount_top_buyer": 9307597.55
         }
     ],
-    // Resúmen de los tres proveedores más grandes por importe de contratación
+    // Summary of the three biggest buyers, by contract amount.
     "top_suppliers": [
-    //Aquí se incluyen tres "parties" de OCDS Records si esta entidad hizo contratos como comprador
+    //Here, three OCDS records parties are included, if this entity has made contracts as a buyer.
     ],
     "top_fundees": [
-    //Aquí se incluyen tres "parties" de OCDS Records si esta entidad hizo contratos como financiador
+    //Here, three OCDS records parties are included, if this entity has made contracts as a funder.
     ]
 
 },
-//Resúmen de los tres contratos más grandes por cada rol
+//The three biggest contracts for each role.
 "top3contracts": {
 
     "funder": [
-    //Aquí se incluyen tres OCDS Records si esta entidad hizo contratos como financiador
+    //Here, three OCDS records parties are included, if this entity has made contracts as a funder.
     ],
     "buyer": [
-    //Aquí se incluyen tres OCDS Records si esta entidad hizo contratos como comprador
+    //Here, three OCDS records parties are included, if this entity has made contracts as a buyer.
     ],
     "supplier": [
-      //Aquí se incluyen tres OCDS Records si esta entidad hizo contratos como proveedor
+      //Here, three OCDS records parties are included, if this entity has made contracts as a supplier.
     ]
 ```
 
 ## party_flags
 
-Para cada institution y person, si se solicita una sola y con embed en true se devuelve sus flags, es decir, el resultado de la aplicación de las banderas OCDS del sistema Groucho, para detalles sobre la metodología revisar [TodosLosContratos.mx](https://www.todosloscontratos.mx/#metodologia).
+For each institution and person, if only one is requested and its embed status is true, it returns its flags, meaning the result of applying Groucho system OCDS flags. For further reading on methodology, check [TodosLosContratos.mx](https://www.todosloscontratos.mx/#metodologia).
 
-Estas incluyen:
-* Información sobre la entidad evaluada
-* Puntajes de las banderas de contrato agregadas por categoría
-* Resúmen de puntajes de las banderas de contrato para esta entidad. Para saber qué evaluación se aplica en cada regla puede revisar el archivo donde se especifican las reglas en OCDS_RedFlags [flagsMX.json](https://github.com/ProjectPODER/OCDS_RedFlags/blob/master/flagsMX.json)
-* Resúmen de puntajes de las banderas de contrato para esta entidad por cada año
-* Resúmen de puntajes de las banderas de nodo para esta entidad
-* Resúmen de puntajes de las banderas de nodo agregadas por categoría
-* Resúmen de puntajes de las categorías de nodo y de contrato agregadas por categoría
-* Puntaje total, promedio de node y contract categories
+These include:
+* Information about the evaluated entity.
+* Contract flags score, added by category.
+* * Summary of contract flags score for this entity. A list of rating rules can be found in the OCDS_RedFlags file [flagsMX.json] (https://github.com/ProjectPODER/OCDS_RedFlags/blob/master/flagsMX.json)
+* Summary of this entity’s contract flags score for each year.
+* Summary of node flags score.
+* Summary of node flags score, added by category. 
+* Summary of node and contract flags score, added by category.
+* Total Score, node and contract categories average score.
 
-
-Ejemplo:
+Example:
 
 ```
 flags": [
 
     {
         "_id": "13bd42c06e4bf5229b870901323d0bfa493e587d",
-        //Información sobre la entidad evaluada
+        //Information about the evaluated entity
         "party": {
-            "id": "banco-interamericano-de-desarrollo",
+            "id": "inter-american-development-bank",
             "type": "supplier"
         },
-        //Puntajes de las banderas de contrato agregadas por categoría
+        //Contract flags score, added by category
         "contract_categories": {
             "total_score": 0.708688222522045,
             "trans": 0.4838571823253367,
@@ -3405,7 +3404,7 @@ flags": [
             "comp": 0.9729379795396419,
             "traz": 0.6672044174128638
         },
-        //Resúmen de puntajes de las banderas de contrato para esta entidad
+        //Summary of contract flags score for this entity
         "contract_rules": {
             "trans-ov": 0,
             "trans-sc": 0.9999433876811594,
@@ -3426,7 +3425,7 @@ flags": [
             "traz-ct": 0.8519816300624237,
             "traz-fro": 0.9996603260869565
         },
-        //Resúmen de puntajes de las banderas de contrato para esta entidad por cada año
+        //Summary of this entity’s contract flags score for each year
         "years": [
             {
                 "year": "2016",
@@ -3486,7 +3485,7 @@ flags": [
                 }
             },
         ],
-        //Resúmen de puntajes de las banderas de nodo para esta entidad
+        //Summary of node flags score for this entity
         "node_rules": {
             "conf": 0.673441838691284,
             "aepm": 1,
@@ -3497,18 +3496,18 @@ flags": [
             "rla": 1,
             "ncap3": 0
         },
-        //Resúmen de puntajes de las banderas de nodo agregadas por categoría
+        //Summary of node flags score, added by category
         "node_categories": {
             "comp": 0.8,
             "traz": 0.75,
             "total_score": 0.775
         },
-        //Resúmen de puntajes de las categorías de nodo y de contrato agregadas por categoría
+        //Summary of node and contract flags score, added by category.
         "category_score": {
             "comp": 0.886468989769821,
             "traz": 0.7086022087064319
         },
-        //Puntaje total, promedio de node y contract categories
+        //Total Score, node and contract categories average score
         "total_score": 0.7418441112610226
     }
 
@@ -3516,21 +3515,20 @@ flags": [
 ```
 
 ## contract_flags
-Para cada contract, si se solicita uno sola y con embed en true se devuelve sus flags, es decir, el resultado de la aplicación de las banderas OCDS del sistema Groucho, para detalles sobre la metodología revisar [TodosLosContratos.mx](https://www.todosloscontratos.mx/#metodologia).
+For each contract, if only one is requested and its embed status is true, it returns its flags, meaning the result of applying Groucho system OCDS flags. For further reading on methodology, check [TodosLosContratos.mx](https://www.todosloscontratos.mx/#metodologia).
 
+* Contract information.
+* Scores, added by category.
+* Scores for each rating in this contract, grouped by category. A list of rating rules can be found in the OCDS_RedFlags file [flagsMX.json] (https://github.com/ProjectPODER/OCDS_RedFlags/blob/master/flagsMX.json)
 
-* Información del contrato.
-* Puntajes agregados por categoría.
-* Puntajes de cada evaluación en este contrato en grupos por categoría. Para saber qué evaluación se aplica en cada regla puede revisar el archivo donde se especifican las reglas en OCDS_RedFlags [flagsMX.json](https://github.com/ProjectPODER/OCDS_RedFlags/blob/master/flagsMX.json)
-
-Ejemplo:
+Example:
 
 ```
 "flags": [
 
     {
         "_id": "05373fc128e6d4fab25e25849f7a64ce44d88765",
-        //Información del contrato
+        //Contract information
         "id": "030/2009",
         "ocid": "ocds-0ud2q6-44936001-007-09",
         "date_signed": "2009-01-04T00:00:00.000Z",
@@ -3555,7 +3553,7 @@ Ejemplo:
             "amount": 138945760000,
             "currency": "MXN"
         },
-        //Puntajes agregados por categoría
+        //Scores, added by category
         "contract_score": {
             "total_score": 0.5657309760132341,
             "trans": 0.3879239040529363,
@@ -3563,7 +3561,7 @@ Ejemplo:
             "comp": 1,
             "traz": 0.625
         },
-        //Puntajes de cada evaluación en este contrato en grupos por categoría
+        //Scores for each rating in this contract, grouped by category.
         "rules_score": {
             "trans": {
                 "trans-ov": 0,

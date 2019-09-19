@@ -3221,7 +3221,7 @@ When a single element of persons, companies, or institutions is requested, this 
 * Contracts summary by contracting mode and role, broken down by amount and quantity.
 * Relations summary, made up of a node list and another of links, so a relations graph can be made.
 * Summary of the three biggest buyers, by contract amount.
-* Summary of the three biggest providers, by contract amount.
+* Summary of the three biggest suppliers, by contract amount.
 * The three biggest contracts for each role.
 * Summary of the three biggest contracts for each role.
 
@@ -3305,7 +3305,7 @@ summaries": {
                 "weight": 35
             },
         ],
-        //Enlaces entre nodos
+        //Nodes links
         "links": [
             {
                 "id": 0,
@@ -3318,7 +3318,7 @@ summaries": {
     },
     // Summary of the three biggest buyers, by contract amount.
     "top_buyers": [
-        //Here three OCDS records parties are included, if this entity has made contracts as a provider.
+        //Here three OCDS records parties are included, if this entity has made contracts as a supplier.
         // Example:
         {
             "roles": [

@@ -2,9 +2,9 @@
 
 If the API can’t return any results, it returns an empty set but the status will still be success.
 
-The APi will return an error message if the query couldn’t be processed.
+The API will return an error message if the query couldn’t be processed.
 
-There is a 5 seconds limit for the database queries. Queries made on non-indexed fields usually exceed this limit and result in an error message.
+There is a 5-second limit for the database queries. Queries made on non-indexed fields usually exceed this limit and result in an error message.
 
 ## Invalid parameter
 ```json

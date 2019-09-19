@@ -11,14 +11,13 @@ Unique identifier for the business or partnership. Data type: string.
 #### name
 Partial or full name of the business or partnership. Searches for main and alternative names. Data type: string or regular expression.
 #### contract_count.supplier
-Number of contracts the business or partnership takes partº in. Data type: integer. Default: empty.
+Number of contracts the business or partnership takes part in. Data type: integer. Default: empty.
 
 Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 #### contract_amount.supplier
 Amount of the contracts provided by this business. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
 
-Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
-
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
 #### country (not implemented)
 Name or ISO 3166-1 alpha code for the country it belongs to. Data type: string.
@@ -42,8 +41,9 @@ Institution partial or full name. Searches for main and alternative names. Data 
 Number of contracts the institution takes part in. Many appear in contracts as buyer and provider; therefore they can be filtered and sorted by both criteria type: integer. Default: empty.
 
 Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
+
 #### contract_amount.supplier and contract_amount.buyer
-Amount of the contracts provided by this institution. Many appear in contracts as buyer and provider; therefore they can be filtered and sorted by both criteria. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
+Amount of the contracts provided by this institution. Many appear in contracts as buyer and supplier; therefore they can be filtered and sorted by both criteria. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
 
 Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
@@ -55,23 +55,24 @@ If a reference expansion is specified, memberships and a summary of the person�
 
 ### Filters
 #### id
-Unique identifier for the person. data type: string.
+Unique identifier for the person. Data type: string.
 #### name
 Partial or full name of the person. Searches for main and alternative names. data type: string or regular expression.
 
 #### contract_count.supplier and contract_count.buyer
-Number of contracts the person takes part in. Many appear in contracts as buyer (purchasing agent) and provider; therefore they can be filtered and sorted by both criteria type: integer. Default: empty.
+Number of contracts the person takes part in. Many appear in contracts as buyer (purchasing agent) and supplier; therefore they can be filtered and sorted by both criteria type: integer. Default: empty.
 
 Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
+
 #### contract_amount.supplier and contract_amount.buyer
-Amount of the contracts provided by this person. Many appear in contracts as buyer (purchasing agent) and provider; therefore they can be filtered and sorted by both criteria. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
+Amount of the contracts provided by this person. Many appear in contracts as buyer (purchasing agent) and supplier; therefore they can be filtered and sorted by both criteria. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
 
 Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
 
 
 #### gender (not implemented)
-The sex of the person. data type: string. Default: all. Possible values: male, female, other. Note: the name ‘gender’ is used to avoid issues with vulgarity filters on automatized systems.
+The sex of the person. Data type: string. Default: all. Possible values: male, female, other. Note: the name ‘gender’ is used to avoid issues with vulgarity filters on automated systems.
 #### country (not implemented)
 Name or ISO 3166-1 alpha code for the country it belongs to. Data type: string.
 #### source (not implemented)

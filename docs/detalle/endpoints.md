@@ -1,129 +1,129 @@
-# Endpoints de consulta
+# Query endpoints
 ## /companies
-Devuelve un listado de objetos JSON tipo [Popolo Organization](http://www.popoloproject.com/specs/organization.html).
+Returns a JSON objects list Type [Popolo Organization](http://www.popoloproject.com/specs/organization.html).
 
-Devuelve un listado de empresas o asociaciones civiles.
-Si se especifica la expansión de referencias, también se listarán las memberships y un resúmen de los contracts de la organización.
+Returns a businesses or civil associations list.
+If a reference expansion is specified, memberships and a summary of the organization’s contracts will be listed.
 
-### Filtros
+### Filters
 #### id
-El identificador único de la empresa o sociedad. Tipo de dato: string.
+Unique identifier for the business or partnership. Data type: string.
 #### name
-El nombre parcial o completo de la empresa o sociedad. Realiza la búsqueda en nombres principales y alternativos. Tipo de dato: string o regular expression.
+Partial or full name of the business or partnership. Searches for main and alternative names. Data type: string or regular expression.
 #### contract_count.supplier
-Número de contratos en los que participa la empresa o sociedad. Tipo de dato: entero. Default: vacío.
+Number of contracts the business or partnership takes part in. Data type: integer. Default: empty.
 
-Nota: soporta sintaxis de mínimo y máximo. Para mínimo poner `contract_count.supplier=>10` para máximo `contract_count.supplier=<100`. Para mínimo y máximo se pueden poner dos veces `contract_count.supplier=>10&contract_count.supplier=>10`.
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 #### contract_amount.supplier
-Importe de contratos provistos por esta empresa. Es importante notar que los importes se están sumando en sus valores absolutos sin considerar las diferencias de monedas. Tipo de dato: entero. Default: vacío.
+Amount of the contracts provided by this business. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
 
-Nota: soporta sintaxis de mínimo y máximo. Para mínimo poner `contract_count.supplier=>10` para máximo `contract_count.supplier=<100`. Para mínimo y máximo se pueden poner dos veces `contract_count.supplier=>10&contract_count.supplier=>10`.
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
-
-#### country (no implementado)
-El nombre del país o código ISO 3166-1 alpha-2 para el país al que pertenece. Tipo de dato: string.
-#### source (no implementado)
-El nombre de la fuente desde la cual fue importada la información. Tipo de dato: string.
+#### country (not implemented)
+Name or ISO 3166-1 alpha code for the country it belongs to. Data type: string.
+#### source (not implemented)
+Name of the source where the info was imported from. Data type: string.
 
 
 ## /institutions
-Devuelve un listado de objetos JSON tipo [Popolo Organization](http://www.popoloproject.com/specs/organization.html).
+Returns a JSON type objects list [Popolo Organization] (http://www.popoloproject.com/specs/organization.html).
 
-Devuelve un listado de instituciones públicas.
-Si se especifica la expansión de referencias, también se listarán las memberships y los contracts de la organización.
+Returns a public institutions list.
+If a reference expansion is specified, memberships and a summary of the organization’s contracts will be listed.
 
-### Filtros
+### Filters
 #### id
-El identificador único de la institución. Tipo de dato: string.
+Unique identifier for the institution. Data type: string.
 #### name
-El nombre parcial o completo de la institución. Realiza la búsqueda en nombres principales y alternativos. Tipo de dato: string o regular expression.
+Institution partial or full name. Searches for main and alternative names. Data type: string or regular expression.
 
-#### contract_count.supplier y contract_count.buyer
-Número de contratos en los que participa la institución. Muchas aparecen en contratos como comprador y como proveedor, por lo tanto se las puede filtrar u ordenar por ambos criterios. Tipo de dato: entero. Default: vacío.
+#### contract_count.supplier and contract_count.buyer
+Number of contracts the institution takes part in. Many appear in contracts as buyer and provider; therefore they can be filtered and sorted by both criteria type: integer. Default: empty.
 
-Nota: soporta sintaxis de mínimo y máximo. Para mínimo poner `contract_count.supplier=>10` para máximo `contract_count.supplier=<100`. Para mínimo y máximo se pueden poner dos veces `contract_count.supplier=>10&contract_count.supplier=>10`.
-#### contract_amount.supplier y contract_amount.buyer
-Importe de contratos comprados o provistos por esta institución. Muchas aparecen en contratos como comprador y como proveedor, por lo tanto se las puede filtrar u ordenar por ambos criterios. Es importante notar que los importes se están sumando en sus valores absolutos sin considerar las diferencias de monedas. Tipo de dato: entero. Default: vacío.
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
-Nota: soporta sintaxis de mínimo y máximo. Para mínimo poner `contract_count.supplier=>10` para máximo `contract_count.supplier=<100`. Para mínimo y máximo se pueden poner dos veces `contract_count.supplier=>10&contract_count.supplier=>10`.
+#### contract_amount.supplier and contract_amount.buyer
+Amount of the contracts provided by this institution. Many appear in contracts as buyer and supplier; therefore they can be filtered and sorted by both criteria. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
+
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
 
 ## /persons
-Devuelve un listado de objetos JSON tipo [Popolo Person](http://www.popoloproject.com/specs/person.html).
+Returns a JSON type objects list [Popolo Person] (http://www.popoloproject.com/specs/person.html).
 
-Si se especifica la expansión de referencias, también se listarán las memberships y los contracts de la persona.
+If a reference expansion is specified, memberships and a summary of the person’s contracts will be listed.
 
-### Filtros
+### Filters
 #### id
-El identificador único de la persona. Tipo de dato: string.
+Unique identifier for the person. Data type: string.
 #### name
-El nombre parcial o completo de la persona. Realiza la búsqueda en nombres principales y alternativos. Tipo de dato: string o regular expression.
+Partial or full name of the person. Searches for main and alternative names. data type: string or regular expression.
 
+#### contract_count.supplier and contract_count.buyer
+Number of contracts the person takes part in. Many appear in contracts as buyer (purchasing agent) and supplier; therefore they can be filtered and sorted by both criteria type: integer. Default: empty.
 
-#### contract_count.supplier y contract_count.buyer
-Número de contratos en los que participa la persona. Muchas aparecen en contratos como comprador (responsable de unidad compradora) y como proveedor, por lo tanto se las puede filtrar u ordenar por ambos criterios. Tipo de dato: entero. Default: vacío.
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
-Nota: soporta sintaxis de mínimo y máximo. Para mínimo poner `contract_count.supplier=>10` para máximo `contract_count.supplier=<100`. Para mínimo y máximo se pueden poner dos veces `contract_count.supplier=>10&contract_count.supplier=>10`.
-#### contract_amount.supplier y contract_amount.buyer
-Importe de contratos comprados o provistos por esta persona. Muchas aparecen en contratos como comprador (responsable de unidad compradora) y como proveedor, por lo tanto se las puede filtrar u ordenar por ambos criterios. Es importante notar que los importes se están sumando en sus valores absolutos sin considerar las diferencias de monedas. Tipo de dato: entero. Default: vacío.
+#### contract_amount.supplier and contract_amount.buyer
+Amount of the contracts provided by this person. Many appear in contracts as buyer (purchasing agent) and supplier; therefore they can be filtered and sorted by both criteria. It’s important to note that the amounts are entered as absolute values, disregarding exchange rates. Data type: integer. Default: empty.
 
-Nota: soporta sintaxis de mínimo y máximo. Para mínimo poner `contract_count.supplier=>10` para máximo `contract_count.supplier=<100`. Para mínimo y máximo se pueden poner dos veces `contract_count.supplier=>10&contract_count.supplier=>10`.
-
-
-
-#### gender (no implementado)
-El sexo asociado a la persona. Tipo de dato: string. Default: all. Valores posibles: male, female, other. Nota: se utiliza el nombre gender para el filtro con el propósito de evitar censura por parte de sistemas automatizados.
-#### country (no implementado)
-El nombre del país o código ISO 3166-1 alpha-2 para el país al que pertenece. Tipo de dato: string.
-#### source (no implementado)
-El nombre de la fuente desde la cual fue importada la información. Tipo de dato: string.
+Note: supports min and max syntax. For min, use: `contract_count.supplier=>10` for max, use: `contract_count.supplier=<100`. For min and max, it can be used twice: `contract_count.supplier=>10&contract_count.supplier=>10`.
 
 
 
+#### gender (not implemented)
+The sex of the person. Data type: string. Default: all. Possible values: male, female, other. Note: the name ‘gender’ is used to avoid issues with vulgarity filters on automated systems.
+#### country (not implemented)
+Name or ISO 3166-1 alpha code for the country it belongs to. Data type: string.
+#### source (not implemented)
+Name of the source where the info was imported from. Data type: string.
 
-  { htmlFieldName: "tipo-adquisicion", apiFieldNames:["compiledRelease.tender.procurementMethodMxCnet"], fieldLabel:"Tipo de procedimiento", type:"string", collections: ["contracts"] },
+
+
+
+  { htmlFieldName: "type-a", apiFieldNames:["compiledRelease.tender.procurementMethodMxCnet"], fieldLabel:"Tipo de procedimiento", type:"string", collections: ["contracts"] },
   { htmlFieldName: "size", apiFieldNames:["limit"], fieldLabel:"Resultados por página", type:"integer", hidden: true, collections: ["all"] },
   { htmlFieldName: "page", apiFieldNames:["offset"], fieldLabel:"Página", type:"integer", hidden: true, collections: ["all"] },
 ]
 
 
 ## /contracts
-Devuelve un [OCDS recordPackage](https://standard.open-contracting.org/latest/en/schema/record_package/). Que incluye un listado de records, cada uno con sus release (de cada fuente) y su compiledRelease, este último es el que se utiliza para los filtros.
+Returns an [OCDS recordPackage] (https://standard.open-contracting.org/latest/en/schema/record_package/). Includes a records list, each with its release (for each source) and its compiledRelease. The latter one is used for filters.
 
-### Filtros
+### Filters
 #### ocid
-El identificador único del proceso de contratación (ocid). Tipo de dato: string.
-#### Título: compiledRelease.contracts.title
-El título del contrato. Tipo de dato: string o regular expression.
-## Proveedor: compiledRelease.awards.suppliers.name
-## Dependencia: compiledRelease.parties.memberOf.name
-#### Fecha de inicio: compiledRelease.contracts.period.startDate
-Fecha de inicio del contrato de los procesos de contratación. Tipo de dato: date (0000-00-00T00:00:00Z). Default: vacío.
-#### Fecha de fin: compiledRelease.contracts.period.endDate
-Fecha de fin del contrato de los procesos de contratación. Tipo de dato: date (0000-00-00T00:00:00Z). Default: vacío.
+Unique identifier for the contracting process (ocid). Data type: string.
+#### Title: compiledRelease.contracts.title
+The title of the contract. Data type: string or regular expression.
+## Provider: compiledRelease.awards.suppliers.name
+## Dependency: compiledRelease.parties.memberOf.name
+#### Start date: compiledRelease.contracts.period.startDate
+Start date of the contracting processes contract. Data type: date (0000-00-00T00:00:00Z). Default: empty.
+#### End date: compiledRelease.contracts.period.endDate
+End date of contracting processes contract. Data type: date (0000-00-00T00:00:00Z). Default: empty.
 
 #### compiledRelease.total_amount
-El importe nominal del proceso de contratación (suma de todos las adjudicaciones de este proceso). Tipo de dato: float (sin separador de miles y con '.' como separador de decimales). Default: vacío.
+Nominal amount of a contracting process (sum of all the adjudications of this contract). Data type: float (without thousand separator and point as decimal separator). Default: empty.
 
 #### procurement_method
-El procedimiento bajo el cual se realizó el proceso de contratación (adjudicación directa, licitación, etc.). Tipo de dato: string. Valores posibles: open, selective, limited, direct. Default: vacío.
+The procedure under which the contracting process was made (direct award, tender, etc). Data type: string. Possible values: open, selective, limited, direct. Default: empty.
 
-#### currency (no implementado)
-La moneda utilizada para especificar los importes de los procesos de contratación. Tipo de dato: string.
+#### currency (not implemented)
+The currency used to specify the amounts of the contracting processes. Data type: string.
 
 ## /csv
 
-Este endpoint genera versiones en CSV de los anteriores. La misma consulta se pone luego del /csv.
+This endpoint generates CSV versions of the former ones. The same query takes place after the /csv.
 
-Ejemplo: Si tenemos una búsqueda de contratos ordenada por el importe `https://api.quienesquien.wiki/v2/contracts?sort=-compiledRelease.total_amount` y queremos el resultado en CSV podemos agregar CSV luego del v2 y antes del contracts, así: `https://api.quienesquien.wiki/v2/csv/contracts?sort=-compiledRelease.total_amount`
+Example: if we have a contracts search sorted by amount `https://api.quienesquien.wiki/v2/contracts?sort=-compiledRelease.total_amount`, and we want the result in CSV, we can add /csv/ after v2 and before contracts, like this: `https://api.quienesquien.wiki/v2/csv/contracts?sort=-compiledRelease.total_amount`
 
-Lo mismo resulta válido para los otros endpoints.
+The same applies to any other endpoint.
 
-Para cada tipo de entidad se generan diferentes tablas.
+For each entity type, different tables are generated.
 
 ### Contracts
 
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 "OCID", records.ocid (Repeated for each contract in a compiledRelase)
 "Contract title", records.compiledRelease.contracts.title
@@ -140,7 +140,7 @@ La tabla de CSV tiene las siguientes columnas:
 ```
 
 ### Persons
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 'id',
 'name',
@@ -149,7 +149,7 @@ La tabla de CSV tiene las siguientes columnas:
 ```
 
 ### Institutions:
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 'id',
 'name',
@@ -162,7 +162,7 @@ La tabla de CSV tiene las siguientes columnas:
 ```
 
 ### Companies
-La tabla de CSV tiene las siguientes columnas:
+The CSV table has the following columns:
 ```
 'id',
 'name',
@@ -174,10 +174,9 @@ La tabla de CSV tiene las siguientes columnas:
 'contract_count_buyer'
 ```
 
-
 ## /sources
-Devuelve un información sobre cantidades de entidad por fuente y por tipo de entidad en QuienEsQuien.wiki.
+Returns information about how many entities there are for each source and type in QuienEsQuien.wiki.
 
-Tiene dos objetos, uno de fuentes `sources` que tiene por cada fuente la cantidad de elementos de cada tipo de entidad. Y otro de colecciones `collections` que tiene la cantidad elementos de cada tipo de entidad.
+It has two objects: one of `sources`, that has for each source the quantity of elements of each entity type; and another one of  `collections`, that has the quantity of elements of each entity type.
 
-Nota: Este endpoint está en construcción.
+Note: this endpoint is still under construction.

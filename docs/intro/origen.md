@@ -1,8 +1,8 @@
-# Orígen de los datos
-La mayoría de la información contenida en la API de QuienEsQuienWiki tiene su orígen en datasets publicados por diferentes instituciones del Estado Mexicano. Especialmente los referidos a contrataciones públicas de la Secretaría de Hacienda y Control Público. Adicionalmente hay conjuntos de datos de otros países, de organizaciones de la sociedad civil y los datos provenientes de solicitudes de acceso a la información pública u obtenidos de fuentes periodísticas.
+# Data origin
+Most of the information contained in the QuienEsQuienWiki API comes from datasets released by different institutions of the Mexican State, specifically the ones regarding public contracting from the Ministry of finance and public control. Additionally, there are datasets from other countries, civil society organizations, access to public information requests, and journalism/media.
 
-En todos los casos, cada consulta incluirá las fuentes originales de cada dato para que puedan ser verificadas de forma independiente por el usuario. Aunque no siempre la información seguirá disponible, por lo que se incluye la fecha y hora en que la información entró por primera vez a la base de datos de QuienEsQuienWiki.
+In every case, each query will include original sources for each piece of data, so they can be independently verified by the user. Considering the info will not always be available, a timestamp with the date and time when the info was first added to the QuienEsQuienWiki database is included.
 
-Para conocer el listado completo de fuentes disponibles, puede utilizar [/sources](endpoints#sources).
+Use [/sources](endpoints#sources) to know the full list of available sources.
 
-Sugerimos referirse también al [aviso de privacidad](https://www.quienesquien.wiki/privacidad).
+Please check our [privacy disclaimer](https://www.quienesquien.wiki/privacidad).
